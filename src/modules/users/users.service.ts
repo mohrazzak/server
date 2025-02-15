@@ -7,7 +7,8 @@ import { Kysely } from 'kysely';
 @Injectable()
 export class UsersService {
 
-  constructor(private readonly todosService: TodosService, @InjectKysely() private readonly db: Kysely<DB>) { }
+  constructor(private readonly todosService: TodosService,
+    @InjectKysely() private readonly db: Kysely<DB>) { }
 
   async findAll() {
     return await this.db.selectFrom('user').selectAll().execute();
